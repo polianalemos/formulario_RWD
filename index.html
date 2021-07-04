@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style>
+        /* p {
+            padding: 3px;
+            font-size: 20px;
+            margin: 0px;
+        } */
+
+        div {
+            color: rgb (19, 19, 19);
+            font-family: 'Dancing Script', cursive;
+            display: grid;
+            justify-content: center;
+            grid-template-columns: (1);
+            grid-auto-rows: auto;
+        }
+        .poliana {
+            border: 10px dotted rgb(207, 201, 201);
+            padding: 15px;
+            background-clip: content-box;
+            padding: 15px;
+            background: rgba(245, 222, 179, 0.281);
+        }
+    </style>
+    <script type="text/javascript">
+        function validaForm(frm) {
+                if(frm.nome.value == "" || frm.nome.value == null || frm.nome.value.lenght < 3) {
+                alert("Por favor, indique o seu nome.");
+                frm.nome.focus();
+                return false;
+            }
+            if(frm.email.value.indexOf("@") == -1 ||
+              frm.email.valueOf.indexOf(".") == -1 ||
+              frm.email.value == "" ||
+              frm.email.value == null) {
+                alert("Por favor, indique um e-mail válido.");
+                frm.email.focus();
+                return false;
+            }
+            escolhaSexo = -1; 
+            for(x = frm.sexo.lenght -1; x > -1; x--) {
+                if(frm.sexo[x].checked) { 
+                   escolhaSexo = x;              
+               }
+            }
+            if(escolhaSexo == -1) {
+                alert("qual o seu sexo?");
+                frm.sexo[0].focus();
+                return false;
+            }
+            if(frm.prof.value == "" || from.prof.value == "Todas") {
+                alert("De momento, precisamos de especialistas nas três áreas indicadas");
+                frm.prof.focus();
+                return false;
+            }
+            if(frm.sobre.value == "" || frm.sobre.value == null) {
+                alert("Por favor, conte-nos um pouco sobre si.");
+                frm.sobre.focus();
+                return false;
+            }
+        }
+        </script>
+</head>
+<body>
+    <form name="frmTeste" method="post" action="#" onsubmit="return validaForm(this);">
+        <div></div>
+        <div class= "poliana"><h3>Validação de formulário</h3>
+        <p>Nome: <input type="text" name="nome" id="nome" /></p>
+        <p>Email: <input type="text" name="email" id="email" /></p>
+        <p>Sexo:
+          <label><input type="radio" name="sexo" value="M" id="masc" /> Masculino</label>
+         <label><input type="radio" name="sexo" value="F" id="masc" /> Feminino</label>
+        </p>
+        <p>Profissão
+          <select name="cargo">
+            <option value="">Selecione o cargo</option>
+            <option value="programador">Programador</option>
+            <option value="designer">Designer</option>
+            <option value="tester">Tester</option>
+            <option value="todas">Todas</option>
+         </select>
+        </p><label><input type="submit" name="sbt" value="Enviar" /></label></p></div>
+        <div></div>
+      </form>      
+</body>
+</html>
